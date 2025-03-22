@@ -29,6 +29,13 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import my from "./my.png";
+import fullstack from "./fullstack.gif";
+import univ_logo from "./univ_logo.png";
+import mygif from "./mygif.gif";
+import rocket from "./rocket.gif";
+import lantern from "./lantern.png";
+import astronaut from "./astronaut.gif";
 
 export {
   logo,
@@ -59,4 +66,11 @@ export {
   carrent,
   jobit,
   tripguide,
+  my,
+  fullstack,
+  univ_logo,
+  mygif,
+  lantern,
+  rocket,
+  astronaut
 };

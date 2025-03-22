@@ -13,6 +13,52 @@
   color-scheme: dark;
 }
 
+#astronaut {
+  position: absolute;
+  top: 50px; /* Default position for large screens */
+  right: 0px; /* Default position for large screens */
+  width: 500px; /* Default size for large screens */
+  height: 500px; /* Maintain proportions */
+  background-image: url('./assets/astronaut.gif'); /* Replace with your image path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0; /* Ensure it's above other elements */
+  animation: float 4s ease-in-out infinite; /* Adjust timing for smaller screens */
+}
+
+@media (max-width: 768px) { /* Adjust styles for mobile view */
+  #astronaut {
+    top: 10px; /* Position closer to the top for smaller screens */
+    right: -45px; /* Position slightly inset from the right */
+    width: 250px; /* Reduce size for better fit */
+    height: 250px; /* Maintain proportions */
+    animation: float 4s ease-in-out infinite; /* Adjust timing for smaller screens */
+  }
+}
+
+
+/* Keyframes for the floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(-60px); /* Move up slightly */
+  }
+  100% {
+    transform: translateY(0); /* Return to start position */
+  }
+}
+
+.quote-card-view-header {
+  color: white;
+}
+
+.containerImg > .img{
+   width: 200px;
+   height: 200px;
+   background-color: red;
+}
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
@@ -32,6 +78,7 @@
     #000000
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 
 .violet-gradient {
   background: #804dee;
@@ -112,6 +159,46 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.rocket {
+  bottom: 0px;
+  right: 15%; /* Center horizontally */
+  position: absolute;
+  transform: translateX(-50%); /* Adjust to center the rocket exactly */
+  width: 550px; /* Size of the rocket */
+  height: 550px; /* Size of the rocket */
+  background-image: url("./assets/rocket.gif"); /* Replace with the actual path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: rocket-move 60s linear infinite; /* Animation duration and repeat */
+  /* z-index: 50; */
+}
+@media (max-width: 768px) { /* Adjust styles for mobile view */
+  .rocket {
+    bottom: 0px; /* Position closer to the top for smaller screens */
+    right: 30px; /* Position slightly inset from the right */
+    width: 250px; /* Reduce size for better fit */
+    height: 250px; /* Maintain proportions */
+    animation: rocket-move2 60s linear infinite; /* Animation duration and repeat */
+  }
+}
+
+@keyframes rocket-move {
+  from {
+    transform: translateX(-50%) translateY(0); /* Start at the bottom */
+  }
+  to {
+    transform: translateX(-50%) translateY(-2000vh); /* Move straight up */
+  }
+}
+
+@keyframes rocket-move2 {
+  from {
+    transform: translateX(-50%) translateY(0); /* Start at the bottom */
+  }
+  to {
+    transform: translateX(-50%) translateY(-3000vh); /* Move straight up */
+  }
 }
 
 /* canvas- styles */
@@ -200,5 +287,39 @@
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+.wave {
+  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.1s; /* Change to speed up or slow down */
+  animation-iteration-count: infinite; /* Never stop waving :) */
+  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
   }
 }

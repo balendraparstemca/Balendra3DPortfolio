@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
+import Type from "./type";
+import { Suspense } from "react";
+import CanvasLoader from "./Loader";
+import Developer from "./canvas/Developer";
+import { SectionWrapper } from "../hoc";
+
+
 
 const Hero = () => {
   return (
@@ -16,14 +23,17 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915EFF]'>Adrian</span>
+            Hi <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>, I'm <span className='text-[#915EFF]'>Balendra</span>
           </h1>
+        
+          <Type />
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className='sm:block hidden' />
-            interfaces and web applications
+            I develop responsive user interfaces & web applications
           </p>
         </div>
+      
       </div>
+     
 
       <ComputersCanvas />
 
@@ -48,4 +58,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero

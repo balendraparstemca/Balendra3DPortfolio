@@ -1,12 +1,15 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-
+import { MdEmail } from "react-icons/md";
+import { BsWhatsapp } from "react-icons/bs";
+import "./Contact.scss";
+import fullstackGif from '../assets/ash2.gif';
+import earth from '../assets/e.png';
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -70,7 +73,7 @@ const Contact = () => {
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        className='flex-[0.75] bg-black-100 p-6 rounded-2xl'
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -120,7 +123,20 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Send"}
           </button>
+          <div className="contact__options">
+          <article className="contact__option">
+            <MdEmail />
+            <a href="mailto:balendramcapu@gmail.com" target="_blank" className="blue-text-gradient">balendramcapu@gmail.com</a>
+          </article>
+          <article className="contact__option">
+            <BsWhatsapp />
+            <a href="https://api.whatsapp.com/send/?phone=917040031669&text&app_absent=0&lang=en" target="_blank" className="blue-text-gradient">
+              +91 9424703403
+            </a>
+          </article>
+        </div>
         </form>
+      
       </motion.div>
 
       <motion.div
@@ -128,6 +144,8 @@ const Contact = () => {
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
       >
         <EarthCanvas />
+        
+      
       </motion.div>
     </div>
   );

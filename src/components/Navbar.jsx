@@ -5,6 +5,13 @@ import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
+import {
+  AiOutlineHome,
+  AiOutlineFundProjectionScreen,
+  AiOutlineUser,
+} from "react-icons/ai";
+
+import { CgFileDocument } from "react-icons/cg";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -29,7 +36,7 @@ const Navbar = () => {
     <nav
       className={`${
         styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
+      } w-full flex items-center py-5  p-0 fixed top-0 z-20 ${
         scrolled ? "bg-primary" : "bg-transparent"
       }`}
     >
@@ -44,8 +51,8 @@ const Navbar = () => {
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Adrian &nbsp;
-            <span className='sm:block hidden'> | JavaScript Mastery</span>
+            Balendra Paraste &nbsp;
+            <span className='sm:block hidden'> | Fullstack Developer</span>
           </p>
         </Link>
 
@@ -58,7 +65,7 @@ const Navbar = () => {
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+             <div style={{display:'flex',alignItems:'center',gap:'3px'}}> <AiOutlineHome  />  <a href={`#${nav.id}`}> <span> {nav.title}</span></a></div> 
             </li>
           ))}
         </ul>
@@ -67,7 +74,7 @@ const Navbar = () => {
           <img
             src={toggle ? close : menu}
             alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            className='w-[20px] h-[28px] object-contain'
             onClick={() => setToggle(!toggle)}
           />
 
@@ -88,7 +95,7 @@ const Navbar = () => {
                     setActive(nav.title);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <a href={`#${nav.id}`}><AiOutlineHome style={{ marginBottom: "2px" }} /> {nav.title}</a>
                 </li>
               ))}
             </ul>

@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
-import { projects } from "../constants";
+import { projects,list, javaProject, cProject, webProject, otherProject } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import ProjectList from "./ProjectList";
 
 const ProjectCard = ({
   index,
@@ -68,6 +69,28 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const [selected, setSelected] = useState("java");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    switch (selected) {
+      case "java":
+        setData(javaProject);
+        break;
+      case "c++":
+        setData(cProject);
+        break;
+      case "web":
+        setData(webProject);
+        break;
+      case "other":
+        setData(otherProject);
+        break;
+
+      default:
+        setData(cProject);
+    }
+  }, [selected]);
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -86,7 +109,20 @@ const Works = () => {
           ability to solve complex problems, work with different technologies,
           and manage projects effectively.
         </motion.p>
+      
       </div>
+      <div>  
+        <ul className="projectCat">
+        {list.map((item,index) => (
+          <ProjectList
+            key={index + 1}
+            title={item.title}
+            active={selected === item.id}
+            setSelected={setSelected}
+            id={item.id}
+          />
+        ))}
+      </ul></div>
 
       <div className='mt-20 flex flex-wrap gap-7'>
         {projects.map((project, index) => (
@@ -97,4 +133,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "project");
